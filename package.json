@@ -1,0 +1,11 @@
+{
+  "name": "ebac-test-intercept",
+  "private": true,
+  "scripts": {
+    "cypress": "cypress open",
+    "cypress:open": "cypress open"
+  },
+  "dependencies": {
+    "cypress": "^16.3.0"
+  }
+}
