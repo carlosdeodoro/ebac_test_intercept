@@ -1,7 +1,11 @@
 export const AppActions = {
   login(email, password) {
-    cy.get('#email').type(email);
-    cy.get('#password').type(password);
-    cy.get('#login-btn').click();
+    return cy.request('POST', '/api/login', { email, password }).then(({ body }) =>
+      cy.visit('/dashboard.html', {
+        onBeforeLoad(window) {
+          window.localStorage.setItem('user', JSON.stringify(body));
+        },
+      }).then(() => body),
+    );
   },
 };
